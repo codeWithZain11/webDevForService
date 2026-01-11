@@ -1,0 +1,16 @@
+.contact-link {
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.contact-link:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.contact-link i {
+    display: block;
+    margin-bottom: 5px;
+}

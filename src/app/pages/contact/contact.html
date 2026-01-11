@@ -1,0 +1,94 @@
+<section id="contact" class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h2 class="text-primary fw-bold">Contact Us</h2>
+                    <p class="text-muted">Get a quote or schedule a repair today</p>
+                    <div class="d-flex justify-content-center gap-4 mt-3">
+                        <a href="https://wa.me/919970464107" target="_blank"
+                            class="text-decoration-none contact-link text-center">
+                            <i class="bi bi-whatsapp text-success fs-3"></i>
+                            <div class="small fw-bold text-muted">WhatsApp</div>
+                            <div class="fw-bold">9970464107</div>
+                        </a>
+                        <a href="tel:7498686554" class="text-decoration-none contact-link text-center">
+                            <i class="bi bi-telephone-fill text-primary fs-3"></i>
+                            <div class="small fw-bold text-muted">Call</div>
+                            <div class="fw-bold">7498686554</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" id="name" class="form-control" formControlName="name"
+                                    name="user_name"
+                                    [ngClass]="{'is-invalid': contactForm.get('name')?.invalid && contactForm.get('name')?.touched}">
+                                <div class="invalid-feedback">Name is required.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" formControlName="phone"
+                                    name="user_phone" maxlength="10"
+                                    [ngClass]="{'is-invalid': contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched}">
+                                <div class="invalid-feedback">Phone number is required.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description / Message</label>
+                                <textarea id="description" class="form-control" rows="4" formControlName="description"
+                                    name="message"
+                                    [ngClass]="{'is-invalid': contactForm.get('description')?.invalid && contactForm.get('description')?.touched}"></textarea>
+                                <div class="invalid-feedback">Description is required.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="image_link" class="form-label">Google Drive Link (Optional)</label>
+                                <div class="input-group">
+                                    <input type="url" id="image_link" class="form-control" formControlName="image_link"
+                                        placeholder="Paste Google Drive link here">
+                                    <a href="https://drive.google.com" target="_blank" class="btn btn-outline-secondary"
+                                        title="Open Google Drive">
+                                        <i class="bi bi-cloud-upload"></i>
+                                    </a>
+                                </div>
+                                <div class="form-text mt-2 p-2 bg-light rounded border-start border-primary border-4">
+                                    <small>
+                                        <strong>How to send a photo?</strong><br>
+                                        1. Open <a href="https://drive.google.com" target="_blank">Google Drive</a> &
+                                        upload your photo.<br>
+                                        2. Right-click photo -> Share -> Copy Link.<br>
+                                        3. Set to <strong>"Anyone with the link"</strong> & paste it here.
+                                    </small>
+                                </div>
+                                <div class="form-text mt-1 text-muted">
+                                    <i class="bi bi-whatsapp text-success"></i> Shortcut: <strong>WhatsApp us at
+                                        9970464107</strong>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg"
+                                    [disabled]="contactForm.invalid || isSubmitting">
+                                    <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2"
+                                        role="status" aria-hidden="true"></span>
+                                    {{ isSubmitting ? 'Sending...' : 'Submit Request' }}
+                                </button>
+                            </div>
+
+                            <div *ngIf="submitMessage" class="mt-3 alert"
+                                [ngClass]="submitMessage.includes('success') ? 'alert-success' : 'alert-danger'">
+                                {{ submitMessage }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

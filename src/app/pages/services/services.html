@@ -1,0 +1,21 @@
+<section id="services" class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary fw-bold">Our Services</h2>
+            <p class="text-muted">Expert LCD repair and electronics maintenance in Vasai Road</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" *ngFor="let service of services">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="display-4 text-primary mb-3">
+                            <i [class]="service.icon"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">{{ service.title }}</h5>
+                        <p class="card-text text-muted">{{ service.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

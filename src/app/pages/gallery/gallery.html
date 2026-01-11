@@ -1,0 +1,21 @@
+<section id="gallery" class="section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary fw-bold">Keyboard Custom Cases & Repairs</h2>
+            <p class="text-muted">Custom keyboard cases and trusted repair services for keyboards, LED/LCD TVs,
+                microwave ovens, and music systems.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 col-sm-6" *ngFor="let item of galleryItems">
+                <div class="card h-100 shadow-sm">
+                    <img [src]="item.image" class="card-img-top" [alt]="item.title"
+                        style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text text-muted">{{ item.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
